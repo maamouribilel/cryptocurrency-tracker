@@ -1,0 +1,41 @@
+<br />
+<br />
+<div class="container">
+  <div class="row">
+    <table class="table table-bordered table-hover">
+      <thead class="table-head">
+        <tr>
+          <th scope="col">Rank</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Symbole</th>
+          <th scope="col">Cap. Marché</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Offre en Circulation</th>
+          <th scope="col">Volume Total</th>
+          <th scope="col">variation (24h)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let coin of coins">
+          <th scope="row">{{ coin.market_cap_rank }}</th>
+          <td>
+            <img src="{{ coin.image }}" alt="{{ coin.id }}" height="35px" />
+            {{ coin.id | uppercase }}
+          </td>
+          <td>{{ coin.symbol | uppercase }}</td>
+          <td>{{ coin.market_cap | currency }}</td>
+          <td>{{ coin.current_price | currency }}</td>
+          <td>{{ coin.circulating_supply | number: '1.2' }}</td>
+          <td>{{ coin.total_volume | currency }}</td>
+          <td
+            [style.color]="
+              coin.price_change_percentage_24h >= 0 ? 'mediumseagreen' : 'red'
+            "
+          >
+            {{ coin.price_change_percentage_24h / 100 | percent: '1.2' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

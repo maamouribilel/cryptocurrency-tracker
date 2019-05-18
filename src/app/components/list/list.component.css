@@ -1,0 +1,10 @@
+.table-head {
+  background-color: #b33939;
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+}
+th {
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
+}
